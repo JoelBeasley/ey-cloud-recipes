@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 node[:applications].each do |app_name,data|
-  ey_cloud_report "roush" do
+  ey_cloud_report "rpush" do
     message "Setting up rpush"
   end
 
