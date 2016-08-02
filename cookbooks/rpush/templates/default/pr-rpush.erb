@@ -1,0 +1,48 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          pt-rpush
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     false
+# Short-Description: Package Tracker Rpush init script
+# Description:       Package Tracker Rpush init script
+### END INIT INFO
+
+DESC="Service for Package Tracker Rpush"
+NAME=pt-rpush
+
+PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
+RAILS_ROOT=/data/<%= @app_name %>/current
+
+BUNDLER_COMMAND="ruby"
+if [ -d $RAILS_ROOT ]; then
+  if [ -f $RAILS_ROOT/Gemfile ]; then
+    BUNDLER_COMMAND="bundle exec ruby"
+    if [ -d $RAILS_ROOT/ey_bundler_binstubs ]; then
+      PATH=$RAILS_ROOT/ey_bundler_binstubs:$PATH
+    fi
+  fi
+fi
+
+do_start()
+{
+   cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush start -e <%= @framework_env %> -f
+   echo "starting!";
+}
+
+do_stop()
+{
+  cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush stop -e <%= @framework_env %> -f
+   echo "stopping!"
+}
+
+case "$1" in
+   start)
+     do_start
+     ;;
+   stop)
+     do_stop
+     ;;
+esac
