@@ -3,6 +3,10 @@
 # Recipe:: default
 #
 node[:applications].each do |app_name,data|
+  ey_cloud_report "roush" do
+    message "Setting up rpush"
+  end
+
   user = node[:users].first
   case node[:instance_role]
   when "solo", "app", "app_master"

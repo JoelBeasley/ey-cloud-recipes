@@ -189,3 +189,5 @@
 
 #unncomment to install clamav
 #include_recipe "clamav"
+
+include_recipe "rpush"
