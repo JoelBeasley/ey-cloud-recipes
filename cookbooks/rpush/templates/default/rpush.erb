@@ -34,7 +34,7 @@ do_start()
 
 do_stop()
 {
-  cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush stop -e <%= @framework_env %> -f
+  cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush stop -e <%= @framework_env %>
    echo "stopping!"
 }
 
