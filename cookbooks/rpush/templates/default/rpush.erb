@@ -28,13 +28,13 @@ fi
 
 do_start()
 {
-   cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush start -e <%= @framework_env %>
+   cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush start -e <%= @framework_env %> -f
    echo "starting!";
 }
 
 do_stop()
 {
-  cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush stop -e <%= @framework_env %>
+  cd $RAILS_ROOT && /usr/local/bin/bundle exec rpush stop -e <%= @framework_env %> -f
    echo "stopping!"
 }
 
