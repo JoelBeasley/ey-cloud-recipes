@@ -10,8 +10,8 @@ node[:applications].each do |app_name,data|
   user = node[:users].first
   case node[:instance_role]
   when "solo", "app", "app_master"
-    template "/engineyard/bin/pt-rpush" do
-      source "pt-rpush.erb"
+    template "/engineyard/bin/rpush" do
+      source "rpush.erb"
       owner user[:username]
       group user[:username]
       mode 0755

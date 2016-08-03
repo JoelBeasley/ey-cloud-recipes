@@ -1,4 +1,4 @@
-check process pt-rpush with pidfile /data/<%= @app_name %>/shared/pids/rpush.pid
-  start program = "/engineyard/bin/pt-rpush start" as uid <%= @user %> and gid <%= @group %>
-  stop program = "/engineyard/bin/pt-rpush stop" as uid <%= @user %> and gid <%= @group %>
-  group pt-rpush
+check process rpush with pidfile /data/<%= @app_name %>/shared/pids/rpush.pid
+  start program = "/engineyard/bin/rpush start" as uid <%= @user %> and gid <%= @group %>
+  stop program = "/engineyard/bin/rpush stop" as uid <%= @user %> and gid <%= @group %>
+  group rpush
