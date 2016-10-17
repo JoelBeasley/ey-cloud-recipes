@@ -1,2 +1,2 @@
-include_recipe "sidekiq"
 include_recipe "rpush"
+include_recipe "sidekiq"
